@@ -1,0 +1,412 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap");
+
+.card-template {
+  --card-background: linear-gradient(160deg, #3d2a6e 0%, #5c3d9e 100%);
+  --card-accent: #d8ccff;
+  --card-text: #ffffff;
+  --card-standard-width: 260px;
+  --card-standard-height: 390px;
+  --card-scale: 1.3;
+
+  position: relative;
+  width: var(--card-standard-width);
+  height: var(--card-standard-height);
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  overflow: hidden;
+  color: var(--card-text);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.24);
+}
+
+.card-template__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 300px;
+  transform: scale(var(--card-scale));
+  transform-origin: top left;
+}
+
+.card-template__bg {
+  position: absolute;
+  inset: 0;
+  background: var(--card-background);
+}
+
+.card-template__border {
+  position: absolute;
+  pointer-events: none;
+}
+
+.card-template__corner {
+  position: absolute;
+  border-color: rgba(255, 255, 255, 0.55);
+  border-style: solid;
+}
+
+.card-template__header,
+.card-template__type,
+.card-template__image,
+.card-template__text,
+.card-template__footer {
+  position: absolute;
+  z-index: 1;
+}
+
+.card-template__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-template__name {
+  margin: 0;
+  overflow: hidden;
+  color: #ffffff;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+.card-template__cost {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.card-template__type {
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.22);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.card-template__image {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.card-template__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-template__image-placeholder {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card-template__text {
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.card-template__effect,
+.card-template__flavor {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.card-template__effect {
+  color: rgba(255, 255, 255, 0.95);
+  font-family: "Crimson Pro", Georgia, serif;
+}
+
+.card-template__flavor {
+  border-top: 0.5px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Crimson Pro", Georgia, serif;
+  font-style: italic;
+}
+
+.card-template__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-template__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.card-template__stat-value {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.card-template__stat-label {
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card-template__divider {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.card-template--html-fantasy {
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: "Cinzel", Georgia, serif;
+  transition: transform 0.15s;
+}
+
+.card-template--html-fantasy:hover {
+  transform: translateY(-3px) rotate(-0.5deg);
+}
+
+.card-template--html-fantasy .card-template__border {
+  inset: 5px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+}
+
+.card-template--html-fantasy .card-template__corner {
+  width: 12px;
+  height: 12px;
+}
+
+.card-template--html-fantasy .card-template__corner--tl {
+  top: 9px;
+  left: 9px;
+  border-width: 2px 0 0 2px;
+}
+
+.card-template--html-fantasy .card-template__corner--tr {
+  top: 9px;
+  right: 9px;
+  border-width: 2px 2px 0 0;
+}
+
+.card-template--html-fantasy .card-template__corner--bl {
+  bottom: 9px;
+  left: 9px;
+  border-width: 0 0 2px 2px;
+}
+
+.card-template--html-fantasy .card-template__corner--br {
+  right: 9px;
+  bottom: 9px;
+  border-width: 0 2px 2px 0;
+}
+
+.card-template--html-fantasy .card-template__header {
+  top: 16px;
+  right: 14px;
+  left: 14px;
+}
+
+.card-template--html-fantasy .card-template__name {
+  max-width: 130px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.card-template--html-fantasy .card-template__cost {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+}
+
+.card-template--html-fantasy .card-template__type {
+  top: 42px;
+  right: 0;
+  left: 0;
+  padding: 2px 14px;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+}
+
+.card-template--html-fantasy .card-template__image {
+  top: 58px;
+  right: 14px;
+  left: 14px;
+  height: 96px;
+  border-radius: 4px;
+}
+
+.card-template--html-fantasy .card-template__image-placeholder {
+  font-size: 10px;
+}
+
+.card-template--html-fantasy .card-template__text {
+  top: 162px;
+  right: 14px;
+  bottom: 38px;
+  left: 14px;
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+
+.card-template--html-fantasy .card-template__effect {
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.card-template--html-fantasy .card-template__flavor {
+  margin-top: 4px;
+  padding-top: 3px;
+  font-size: 8px;
+}
+
+.card-template--html-fantasy .card-template__footer {
+  right: 14px;
+  bottom: 10px;
+  left: 14px;
+}
+
+.card-template--html-fantasy .card-template__stat {
+  min-width: 28px;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.card-template--html-fantasy .card-template__stat-value {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.card-template--html-fantasy .card-template__stat-label {
+  font-size: 6px;
+}
+
+.card-template--html-fantasy .card-template__divider {
+  font-size: 8px;
+}
+
+.card-template--large-scroll {
+  border: 0;
+  border-radius: 16px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.card-template--large-scroll .card-template__bg {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent 35%),
+    var(--card-background);
+}
+
+.card-template--large-scroll .card-template__border {
+  inset: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 5px rgba(43, 33, 24, 0.72);
+}
+
+.card-template--large-scroll .card-template__corner {
+  display: none;
+}
+
+.card-template--large-scroll .card-template__header {
+  top: 14px;
+  right: 12px;
+  left: 12px;
+  border-radius: 5px;
+  padding: 5px 7px;
+  background: rgba(43, 33, 24, 0.72);
+}
+
+.card-template--large-scroll .card-template__name {
+  max-width: 128px;
+  font-size: 13px;
+}
+
+.card-template--large-scroll .card-template__cost {
+  width: 24px;
+  height: 24px;
+  background: var(--card-accent);
+  color: #2b2118;
+  font-size: 12px;
+}
+
+.card-template--large-scroll .card-template__type {
+  top: 48px;
+  right: 12px;
+  left: 12px;
+  border-radius: 5px;
+  padding: 4px 7px;
+  background: rgba(255, 250, 240, 0.84);
+  color: #2b2118;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.card-template--large-scroll .card-template__image {
+  top: 70px;
+  right: 12px;
+  left: 12px;
+  height: 102px;
+  border: 3px solid rgba(43, 33, 24, 0.72);
+  border-radius: 5px;
+}
+
+.card-template--large-scroll .card-template__text {
+  top: 182px;
+  right: 12px;
+  bottom: 40px;
+  left: 12px;
+  border-radius: 5px;
+  padding: 7px;
+  background: rgba(255, 250, 240, 0.9);
+}
+
+.card-template--large-scroll .card-template__effect {
+  color: #2b2118;
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+.card-template--large-scroll .card-template__flavor {
+  margin-top: 5px;
+  padding-top: 4px;
+  border-color: rgba(43, 33, 24, 0.2);
+  color: #594a3a;
+  font-size: 8px;
+}
+
+.card-template--large-scroll .card-template__footer {
+  right: 12px;
+  bottom: 10px;
+  left: 12px;
+}
+
+.card-template--large-scroll .card-template__stat {
+  min-width: 36px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  padding: 3px 7px;
+}
+
+.card-template--large-scroll .card-template__stat-value {
+  font-size: 12px;
+}
+
+.card-template--large-scroll .card-template__stat-label {
+  font-size: 6px;
+}
